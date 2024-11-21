@@ -1,28 +1,54 @@
 {
   "workflowApiVersion": "1.1",
-  "lang": {
-    "en-US": {
-      "name": "Telegram v2",
-      "description": "REST activity using workflow API v1.0 format."
-    }
-  },
   "metaData": {
-    "icon": "images/telegram-icon-6896828_960_720.png",
+    "icon": "images/viber.png",
     "category": "message"
-
   },
   "type": "REST",
+  "lang": {
+    "en-US": {
+      "name": "Viber v2 ",
+      "description": "An example REST activity using workflow API v1.1 format."
+    }
+  },
   "arguments": {
     "execute": {
-      "inArguments": [],
-      "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
+      "inArguments": [
+        {
+          "emailAddress": "{{InteractionDefaults.Email}}"
+        },
+        {
+          "phoneNumber": "{{Contact.Default.PhoneNumber}}"
+        }
+      ],
+      "outArguments": [
+        {
+          "foundSignupDate": ""
+        }
+      ],
+      "url": "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=Hi Welcome to my group!!"
     }
   },
   "configurationArguments": {
+    "save": {
+      "url": "https://viber-marvin-26fae9745375.herokuapp.com/save"
+    },
     "publish": {
       "url": "https://viber-marvin-26fae9745375.herokuapp.com/publish"
+    },
+    "validate": {
+      "url": "https://viber-marvin-26fae9745375.herokuapp.com/validate"
+    },
+    "stop": {
+      "url": "https://viber-marvin-26fae9745375.herokuapp.com/stop"
     }
   },
+  "wizardSteps": [
+    { "label": "Step 1", "key": "step1" },
+    { "label": "Step 2", "key": "step2" },
+    { "label": "Step 3", "key": "step3" },
+    { "label": "Step 4a", "key": "step4", "active": false }
+  ],
   "userInterfaces": {
     "configModal": {
       "height": 200,
@@ -30,4 +56,35 @@
       "fullscreen": true
     }
   },
+  "schema": {
+    "arguments": {
+      "execute": {
+        "inArguments": [
+          {
+            "phoneNumber": {
+              "dataType": "Phone",
+              "isNullable": false,
+              "direction": "in"
+            }
+          },
+          {
+            "emailAddress": {
+              "dataType": "Email",
+              "isNullable": false,
+              "direction": "in"
+            }
+          }
+        ],
+        "outArguments": [
+          {
+            "foundSignupDate": {
+              "dataType": "Date",
+              "direction": "out",
+              "access": "visible"
+            }
+          }
+        ]
+      }
+    }
+  }
 }
