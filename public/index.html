@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -6,15 +7,56 @@
 
     <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="js/require.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript">
+      (function () {
+        var config = {
+          baseUrl: "",
+        };
+
+        var dependencies = ["customActivity"];
+
+        require(config, dependencies);
+      })();
+    </script>
+
+    <!--Styles-->
+    <style type="text/css">
+      body {
+        padding: 20px;
+        margin: 0;
+      }
+      .step {
+        display: none;
+      }
+      #step1 {
+        display: block;
+      }
+    </style>
   </head>
-
   <body>
-    <h3>Configuration JSON</h3>
-    <textarea id="configuration"></textarea>
+    <div id="step1" class="step">
+      Select your SMS message:
+      <select id="select1">
+        <option value="">Select an option</option>
+        <option value="someMessage">Some SMS</option>
+        <option value="anotherMessage">Another SMS</option>
+        <option value="thirdMessage">Third SMS</option>
+        <option value="unknownMessage">Unknown SMS</option>
+      </select>
 
-    <script src="/public/postmonger.js"></script>
-    <script src="/public/customActivity.js"></script>
-
+      <button id="toggleLastStep">Toggle Last Step</button>
+    </div>
+    <div id="step2" class="step">
+      Here's a second page with some info on it.
+      <input type="text" data-hotkey="/ s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off">
+    </div>
+    <div id="step3" class="step">
+      You chose the message:
+      <div id="message"></div>
+    </div>
+    <div id="step4" class="step">
+      Hey, here's a fourth step, just for you. Toggle this on or off from step
+      1.
+    </div>
   </body>
 </html>
