@@ -26,13 +26,6 @@
     "publish": {
       "url": "https://viber-marvin-26fae9745375.herokuapp.com/publish"
     }
-  },
-  "userInterfaces": {
-    "configModal": {
-      "height": 200,
-      "width": 300,
-      "fullscreen": true
-    }
   }
 }
  
