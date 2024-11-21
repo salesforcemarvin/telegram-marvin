@@ -14,11 +14,7 @@
   "type": "REST",
   "arguments": {
     "execute": {
-      "inArguments": [
-        { "contactKey": "{{Contact.Key}}" },
-        { "FirstName": "{{Contact.Attribute.JourneyEntrySource.FirstName}}" },
-        { "LastName": "{{Contact.Attribute.JourneyEntrySource.LastName}}" }
-      ],
+      "inArguments": [],
       "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
     }
   },
