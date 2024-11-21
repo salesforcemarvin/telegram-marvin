@@ -8,12 +8,10 @@
   },
   "metaData": {
     "icon": "images/telegram-icon-6896828_960_720.png",
-    "category": "message",
-    "is_Configured": true
+    "category": "message"
+
   },
   "type": "REST",
-  "key": "REST-1",
-
   "arguments": {
     "execute": {
       "inArguments": [
@@ -28,12 +26,5 @@
     "publish": {
       "url": "https://viber-marvin-26fae9745375.herokuapp.com/publish"
     }
-  },
-  "editable": true,
-  "outcomes": [
-    {
-      "next": "WAITBYDURATION-1"
-    }
-  ],
-  "errors": []
+  }
 }
