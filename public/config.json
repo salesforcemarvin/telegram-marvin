@@ -8,17 +8,18 @@
   },
   "metaData": {
     "icon": "images/telegram-icon-6896828_960_720.png",
-    "category": "message"
+    "category": "message",
+    "is_Configured": true
   },
   "type": "REST",
+  "key": "REST-1",
 
   "arguments": {
     "execute": {
       "inArguments": [
-        {"contactKey": "{{Contact.Key}}"},
-        {"FirstName": "{{Contact.Attribute.JourneyEntrySource.FirstName}}"},
-        {"LastName": "{{Contact.Attribute.JourneyEntrySource.LastName}}"}
-      
+        { "contactKey": "{{Contact.Key}}" },
+        { "FirstName": "{{Contact.Attribute.JourneyEntrySource.FirstName}}" },
+        { "LastName": "{{Contact.Attribute.JourneyEntrySource.LastName}}" }
       ],
       "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
     }
@@ -28,48 +29,11 @@
       "url": "https://viber-marvin-26fae9745375.herokuapp.com/publish"
     }
   },
-  "wizardSteps": [
-    { "label": "Step 1", "key": "step1" },
-    { "label": "Step 2", "key": "step2" },
-    { "label": "Step 3", "key": "step3" },
-    { "label": "Step 4a", "key": "step4", "active": false }
+  "editable": true,
+  "outcomes": [
+    {
+      "next": "WAITBYDURATION-1"
+    }
   ],
-  "userInterfaces": {
-    "configModal": {
-      "height": 200,
-      "width": 300,
-      "fullscreen": true
-    }
-  },
-  "schema": {
-    "arguments": {
-      "execute": {
-        "inArguments": [
-          {
-            "phoneNumber": {
-              "dataType": "Phone",
-              "isNullable": false,
-              "direction": "in"
-            }
-          },
-          {
-            "emailAddress": {
-              "dataType": "Email",
-              "isNullable": false,
-              "direction": "in"
-            }
-          }
-        ],
-        "outArguments": [
-          {
-            "foundSignupDate": {
-              "dataType": "Date",
-              "direction": "out",
-              "access": "visible"
-            }
-          }
-        ]
-      }
-    }
-  }
+  "errors": []
 }
