@@ -8,8 +8,10 @@ define(["postmonger"], function (Postmonger) {
 
   connection.on("initActivity", initialize);
   connection.on("clickedNext", onClickedNext);
+  connection.on("gotoStep", onClickedNext);
 
   function onRender() {
+    // JB will respond the first time 'ready' is called with 'initActivity'
     connection.trigger("ready");
   }
 
@@ -27,5 +29,7 @@ define(["postmonger"], function (Postmonger) {
       document.getElementById("configuration").value
     );
     connection.trigger("updateActivity", configuration);
+
+    connection.trigger("ready");
   }
 });
