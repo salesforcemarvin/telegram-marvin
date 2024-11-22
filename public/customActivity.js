@@ -17,20 +17,53 @@ define(["postmonger"], function (Postmonger) {
   }
 
   function initialize(data) {
-    document.getElementById("configuration").value = JSON.stringify(
-      data,
-      null,
-      2
+
+    if (data) {
+      payload = data;
+    }
+
+    //Checking if inArguments Exist
+    var message;
+    var hasInArguments = Boolean(
+      payload["arguments"] &&
+        payload["arguments"].execute &&
+        payload["arguments"].execute.inArguments &&
+        payload["arguments"].execute.inArguments.length > 0
     );
+
+    //if arguement is empty then {}
+    var inArguments = hasInArguments
+    ? payload["arguments"].execute.inArguments
+    : {};
+
+    //Iterates through the key-value pairs of the inArgument object.
+    //Checks if the current key is "message".
+    //If the key matches, the value (val) is assigned to the message variable.
+    $.each(inArguments, function (index, inArgument) {
+      $.each(inArgument, function (key, val) {
+        if (key === "message") {
+          message = val;
+        }
+      });
+    });
+
+    document.getElementById("configuration").value = data;
+
+    // document.getElementById("configuration").value = JSON.stringify(
+    //   data,
+    //   null,
+    //   2
+    // );
   }
 
   //Save Sequence
   function onClickedNext() {
-    var configuration = JSON.parse(
-      document.getElementById("configuration").value
-    );
+    // var configuration = JSON.parse(
+    //   document.getElementById("configuration").value
+    // );
     
-
+    var configuration = document.getElementById("configuration").value;
+    
     save(configuration);
   }
 
