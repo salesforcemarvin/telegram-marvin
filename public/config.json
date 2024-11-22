@@ -2,7 +2,7 @@
   "workflowApiVersion": "1.1",
   "lang": {
     "en-US": {
-      "name": "Telegram v2",
+      "name": "Telegram v3 for linh",
       "description": "REST activity using workflow API v1.0 format."
     }
   },
