@@ -12,19 +12,12 @@
     "isConfigured": true
   },
   "type": "REST",
-  "userInterfaces": {
-    "configInspector": {
-      "size": "medium"
-    }
-  },
   "arguments": {
     "execute": {
       "inArguments": [
-        {
-          "chat_id": "@vcbsalesforce",
-          "text": "Hi Marvin :) !!"
-        }
+
       ],
+      "outArguments": [],
       "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute"
     }
   },
@@ -47,5 +40,41 @@
     { "label": "Step 2", "key": "step2" },
     { "label": "Step 3", "key": "step3" },
     { "label": "Step 4a", "key": "step4", "active": false }
-  ]
+  ],
+  "userInterfaces": {
+    "configInspector": {
+      "size": "medium"
+    }
+  },
+  "schema": {
+    "arguments": {
+      "execute": {
+        "inArguments": [
+          {
+            "chat_id": {
+              "dataType": "Text",
+              "isNullable": false,
+              "direction": "in"
+            }
+          },
+          {
+            "text": {
+              "dataType": "Text",
+              "isNullable": false,
+              "direction": "in"
+            }
+          }
+        ],
+        "outArguments": [
+          {
+            "foundSignupDate": {
+              "dataType": "Date",
+              "direction": "out",
+              "access": "visible"
+            }
+          }
+        ]
+      }
+    }
+  }
 }
