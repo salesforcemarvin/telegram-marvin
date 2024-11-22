@@ -16,7 +16,6 @@
     "execute": {
       "inArguments": [
         {
-          "contactKey": "{{Contact.Key}}",
           "emailAddress": "{{InteractionDefaults.Email}}",
           "phoneNumber": "{{Contact.Default.PhoneNumber}}",
           "firstName": "{{Contact.Attribute.FirstName}}",
@@ -51,6 +50,41 @@
   "userInterfaces": {
     "configInspector": {
       "size": "medium"
+    }
+  },
+  "schema": {
+    "arguments": {
+      "execute": {
+        "inArguments": [
+          {
+            "emailAddress": {
+              "dataType": "Email",
+              "isNullable": false,
+              "direction": "in"
+            },
+            "phoneNumber": {
+              "dataType": "Phone",
+              "isNullable": false,
+              "direction": "in"
+            },
+            "firstName": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            },
+            "lastName": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            },
+            "customField": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            }
+          }
+        ]
+      }
     }
   }
 
