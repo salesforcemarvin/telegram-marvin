@@ -193,7 +193,8 @@ define(["postmonger"], function (Postmonger) {
       // may be overridden as desired.
       payload.name = value; //text message to send to telegram
 
-      payload["arguments"].execute.inArguments = [{ "chat_id": "@vcbsalesforce", "text": value }];
+      payload["arguments"].execute.inArguments = [{ message: value }];
+      //payload["arguments"].execute.inArguments = [{ "chat_id": "@vcbsalesforce", "text": value }];
   
       payload["metaData"].isConfigured = true;
 

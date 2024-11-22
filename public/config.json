@@ -14,9 +14,7 @@
   "type": "REST",
   "arguments": {
     "execute": {
-      "inArguments": [
-
-      ],
+      "inArguments": [],
       "outArguments": [],
       "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute"
     }
@@ -45,36 +43,6 @@
     "configInspector": {
       "size": "medium"
     }
-  },
-  "schema": {
-    "arguments": {
-      "execute": {
-        "inArguments": [
-          {
-            "chat_id": {
-              "dataType": "Text",
-              "isNullable": false,
-              "direction": "in"
-            }
-          },
-          {
-            "text": {
-              "dataType": "Text",
-              "isNullable": false,
-              "direction": "in"
-            }
-          }
-        ],
-        "outArguments": [
-          {
-            "foundSignupDate": {
-              "dataType": "Date",
-              "direction": "out",
-              "access": "visible"
-            }
-          }
-        ]
-      }
-    }
   }
+
 }
