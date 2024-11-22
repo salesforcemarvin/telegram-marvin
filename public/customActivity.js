@@ -47,13 +47,11 @@ define(["postmonger"], function (Postmonger) {
       //   });
       // });
 
-    document.getElementById("configuration").value = data;
-
-    // document.getElementById("configuration").value = JSON.stringify(
-    //   data,
-    //   null,
-    //   2
-    // );
+    document.getElementById("configuration").value = JSON.stringify(
+      data,
+      null,
+      2
+    );
   }
 
   //Save Sequence
