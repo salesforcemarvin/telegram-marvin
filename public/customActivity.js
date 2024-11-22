@@ -17,21 +17,24 @@ define(["postmonger"], function (Postmonger) {
 
   function initialize(data) {
 
-    document.getElementById("configuration").value = JSON.stringify(
-      data,
-      null,
-      2
-    );
+    // document.getElementById("configuration").value = JSON.stringify(
+    //   data,
+    //   null,
+    //   2
+    // );
+    document.getElementById("configuration").value = data;
+
   }
 
   //Save Sequence
   function onClickedNext() {
-    var configuration = JSON.parse(
-      document.getElementById("configuration").value
-    );
+    // var configuration = JSON.parse(
+    //   document.getElementById("configuration").value
+    // );
+    var configuration = document.getElementById("configuration").value;
     connection.trigger("updateActivity", configuration);
 
-    //var configuration = document.getElementById("configuration").value;
+    
     //save(configuration);
   }
 
