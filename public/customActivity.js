@@ -33,11 +33,11 @@ define(["postmonger"], function (Postmonger) {
     // );
     var configuration = document.getElementById("configuration").value;
     
-    connection.trigger("updateActivity", configuration);
+    //connection.trigger("updateActivity", configuration);
 
-    connection.trigger("ready");
-    
-    //save(configuration);
+
+
+    save(configuration);
   }
 
   function save(tdata) {
@@ -54,6 +54,8 @@ define(["postmonger"], function (Postmonger) {
       payload["metaData"].isConfigured = true;
 
       connection.trigger("updateActivity", payload);
+
+      //connection.trigger("ready");
 
   }
 });
