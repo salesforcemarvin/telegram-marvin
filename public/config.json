@@ -28,16 +28,16 @@
   },
   "configurationArguments": {
     "save": {
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/save"
+      "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
     },
     "publish": {
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/publish"
+      "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
     },
     "validate": {
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/validate"
+      "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
     },
     "stop": {
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/stop"
+      "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
     }
   },
   "wizardSteps": [
