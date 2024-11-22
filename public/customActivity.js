@@ -69,8 +69,19 @@ define(["postmonger"], function (Postmonger) {
       });
     });
 
-    document.getElementById("configuration").value = message;
-    showStep(null, 3);
+    
+
+    // If there is no message selected, disable the next button
+    if (!message) {
+      showStep(null, 1);
+      connection.trigger("updateButton", { button: "next", enabled: false });
+      // If there is a message, skip to the summary step
+    } else {
+      
+      document.getElementById("configuration").value = message;
+      $("#message").html(message);
+      showStep(null, 3);
+    }
   }
 
   function onGetTokens(tokens) {
