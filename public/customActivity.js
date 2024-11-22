@@ -35,6 +35,7 @@ define(["postmonger"], function (Postmonger) {
     
     connection.trigger("updateActivity", configuration);
 
+    connection.trigger("ready");
     
     //save(configuration);
   }
