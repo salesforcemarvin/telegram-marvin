@@ -42,7 +42,7 @@ define(["postmonger"], function (Postmonger) {
     //   null,
     //   2
     // );
-    var a = document.getElementById("configuration").value = data;
+    
 
     if (data) {
       payload = data;
@@ -68,6 +68,7 @@ define(["postmonger"], function (Postmonger) {
       });
     });
 
+    document.getElementById("configuration").value = message;
   }
 
   function onGetTokens(tokens) {
@@ -176,9 +177,9 @@ define(["postmonger"], function (Postmonger) {
       // Journey Builder sends an initial payload with defaults
       // set by this activity's config.json file.  Any property
       // may be overridden as desired.
-      payload.name = "telegramText"; //text message to send to telegram
+      payload.name = "Telegram Message"; //text message to send to telegram
 
-      payload["arguments"].execute.inArguments = [{ message: value }];
+      payload["arguments"].execute.inArguments = [{ message: "12345" }];
   
       payload["metaData"].isConfigured = true;
 
