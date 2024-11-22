@@ -31,7 +31,8 @@ define(["postmonger"], function (Postmonger) {
     connection.trigger("requestTokens");
     connection.trigger("requestEndpoints");
 
-    $("#message").html("test 123");
+    var message = getMessage();
+    $("#message").html(message);
 
   }
 
@@ -179,7 +180,7 @@ define(["postmonger"], function (Postmonger) {
       // may be overridden as desired.
       payload.name = "Telegram Message"; //text message to send to telegram
 
-      payload["arguments"].execute.inArguments = [{ message: "12345" }];
+      payload["arguments"].execute.inArguments = [{ message: value }];
   
       payload["metaData"].isConfigured = true;
 
