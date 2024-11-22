@@ -16,9 +16,6 @@
     "execute": {
       "inArguments": [
         {
-          "emailAddress": "{{InteractionDefaults.Email}}",
-          "firstName": "{{Contact.Attribute.FirstName}}",
-          "lastName": "{{Contact.Attribute.LastName}}",
           "customField": "customValue"
         }
       ],
@@ -56,21 +53,6 @@
       "execute": {
         "inArguments": [
           {
-            "emailAddress": {
-              "dataType": "Email",
-              "isNullable": false,
-              "direction": "in"
-            },
-            "firstName": {
-              "dataType": "Text",
-              "isNullable": true,
-              "direction": "in"
-            },
-            "lastName": {
-              "dataType": "Text",
-              "isNullable": true,
-              "direction": "in"
-            },
             "customField": {
               "dataType": "Text",
               "isNullable": true,
