@@ -18,34 +18,34 @@ define(["postmonger"], function (Postmonger) {
 
   function initialize(data) {
 
-    if (data) {
-      payload = data;
-    }
+    // if (data) {
+    //   payload = data;
+    // }
 
     //Checking if inArguments Exist
-    var message;
-    var hasInArguments = Boolean(
-      payload["arguments"] &&
-        payload["arguments"].execute &&
-        payload["arguments"].execute.inArguments &&
-        payload["arguments"].execute.inArguments.length > 0
-    );
+      // var message;
+      // var hasInArguments = Boolean(
+      //   payload["arguments"] &&
+      //     payload["arguments"].execute &&
+      //     payload["arguments"].execute.inArguments &&
+      //     payload["arguments"].execute.inArguments.length > 0
+      // );
 
-    //if arguement is empty then {}
-    var inArguments = hasInArguments
-    ? payload["arguments"].execute.inArguments
-    : {};
+    // //if arguement is empty then {}
+      // var inArguments = hasInArguments
+      // ? payload["arguments"].execute.inArguments
+      // : {};
 
     //Iterates through the key-value pairs of the inArgument object.
     //Checks if the current key is "message".
-    //If the key matches, the value (val) is assigned to the message variable.
-    $.each(inArguments, function (index, inArgument) {
-      $.each(inArgument, function (key, val) {
-        if (key === "message") {
-          message = val;
-        }
-      });
-    });
+      //If the key matches, the value (val) is assigned to the message variable.
+      // $.each(inArguments, function (index, inArgument) {
+      //   $.each(inArgument, function (key, val) {
+      //     if (key === "message") {
+      //       message = val;
+      //     }
+      //   });
+      // });
 
     document.getElementById("configuration").value = data;
 
@@ -63,7 +63,7 @@ define(["postmonger"], function (Postmonger) {
     // );
     
     var configuration = document.getElementById("configuration").value;
-    
+
     save(configuration);
   }
 
