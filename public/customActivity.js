@@ -44,7 +44,7 @@ define(["postmonger"], function (Postmonger) {
     //   2
     // );
     
-
+    console.log('-------- triggered:onInitActivity({obj}) --------');
     if (data) {
       payload = data;
     }
@@ -198,6 +198,12 @@ define(["postmonger"], function (Postmonger) {
   
       payload["metaData"].isConfigured = true;
 
+
+      // get the option that the user selected and save it to
+      console.log('------------ triggering:updateActivity({obj}) ----------------');
+      console.log('Sending message back to updateActivity');
+      console.log('saving\n', value);
+      console.log('--------------------------------------------------------------');
       connection.trigger("updateActivity", payload);
 
   }
