@@ -51,7 +51,7 @@ define(["postmonger"], function (Postmonger) {
 
       //payload["arguments"].execute.inArguments = [{ message: tdata }];
   
-      payload["metaData"].isConfigured = true;
+      //payload["metaData"].isConfigured = true;
 
       connection.trigger("updateActivity", payload);
 

@@ -8,7 +8,8 @@
   },
   "metaData": {
     "icon": "images/telegram-icon-6896828_960_720.png",
-    "category": "message"
+    "category": "message",
+    "isConfigured":true
 
   },
   "type": "REST",
