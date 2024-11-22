@@ -17,12 +17,12 @@ define(["postmonger"], function (Postmonger) {
 
   function initialize(data) {
 
-    document.getElementById("configuration").value = JSON.stringify(
-      data,
-      null,
-      2
-    );
-    //document.getElementById("configuration").value = data;
+    // document.getElementById("configuration").value = JSON.stringify(
+    //   data,
+    //   null,
+    //   2
+    // );
+    document.getElementById("configuration").value = data;
 
   }
 
