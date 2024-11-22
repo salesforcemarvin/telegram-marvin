@@ -9,8 +9,7 @@
   "metaData": {
     "icon": "images/telegram-icon-6896828_960_720.png",
     "category": "message",
-    "isConfigured":true
-
+    "isConfigured": true
   },
   "type": "REST",
   "userInterfaces": {
@@ -20,10 +19,14 @@
   },
   "arguments": {
     "execute": {
-      "inArguments": [],               
+      "inArguments": [
+        {
+          "chat_id": "@vcbsalesforce",
+          "text": "Hi Marvin :) !!"
+        }
+      ],
       "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute"
     }
-
   },
   "configurationArguments": {
     "save": {
@@ -46,4 +49,3 @@
     { "label": "Step 4a", "key": "step4", "active": false }
   ]
 }
- 
