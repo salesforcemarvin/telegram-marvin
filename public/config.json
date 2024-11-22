@@ -12,6 +12,11 @@
 
   },
   "type": "REST",
+  "userInterfaces": {
+    "configInspector" {
+      "size": "medium"
+    }
+  },
   "arguments": {
     "execute": {
       "inArguments": [
