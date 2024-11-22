@@ -68,19 +68,16 @@ define(["postmonger"], function (Postmonger) {
       });
     });
 
-    // If there is no message selected, disable the next button
-    if (!message) {
-      showStep(null, 1);
-      connection.trigger("updateButton", { button: "next", enabled: false });
-      // If there is a message, skip to the summary step
-    } else {
-      $("#select1")
-        .find("option[value=" + message + "]")
-        .attr("selected", "selected");
-      $("#message").html(a);
-      showStep(null, 3);
-    }
+  }
 
+  function onGetTokens(tokens) {
+    // Response: tokens = { token: <legacy token>, fuel2token: <fuel api token> }
+    // console.log(tokens);
+  }
+
+  function onGetEndpoints(endpoints) {
+    // Response: endpoints = { restHost: <url> } i.e. "rest.s1.qa1.exacttarget.com"
+    // console.log(endpoints);
   }
 
   //Save Sequence
@@ -88,7 +85,7 @@ define(["postmonger"], function (Postmonger) {
     // var configuration = JSON.parse(
     //   document.getElementById("configuration").value
     // );
-    var configuration = document.getElementById("configuration").value;
+    //var configuration = document.getElementById("configuration").value;
     
     //connection.trigger("updateActivity", configuration);
     //save(configuration);
@@ -97,7 +94,7 @@ define(["postmonger"], function (Postmonger) {
       (currentStep.key === "step3" && steps[3].active === false) ||
       currentStep.key === "step4"
     ) {
-      save(configuration);
+      save();
     } else {
       connection.trigger("nextStep");
     }
@@ -171,8 +168,9 @@ define(["postmonger"], function (Postmonger) {
     }
   }
 
-  function save(tdata) {
+  function save() {
     
+      var value = getMessage();
 
       // 'payload' is initialized on 'initActivity' above.
       // Journey Builder sends an initial payload with defaults
@@ -180,11 +178,15 @@ define(["postmonger"], function (Postmonger) {
       // may be overridden as desired.
       payload.name = "telegramText"; //text message to send to telegram
 
-      payload["arguments"].execute.inArguments = [{ message: tdata }];
+      payload["arguments"].execute.inArguments = [{ message: value }];
   
       payload["metaData"].isConfigured = true;
 
       connection.trigger("updateActivity", payload);
 
+  }
+
+  function getMessage() {
+    return document.getElementById("configuration").value;
   }
 });
