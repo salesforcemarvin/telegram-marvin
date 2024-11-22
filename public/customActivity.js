@@ -3,22 +3,54 @@ define(["postmonger"], function (Postmonger) {
 
   var connection = new Postmonger.Session();
   var payload = {};
-
-  // var steps = [
-  //   // initialize to the same value as what's set in config.json for consistency
-  //   { label: "Step 1", key: "step1" }
-  // ];
-  // var currentStep = steps[0].key;
+  var lastStepEnabled = false;
+  var steps = [
+    // initialize to the same value as what's set in config.json for consistency
+    { label: "Step 1", key: "step1" },
+    { label: "Step 2", key: "step2" },
+    { label: "Step 3", key: "step3" },
+    { label: "Step 4", key: "step4", active: false },
+  ];
+  var currentStep = steps[0].key;
 
   //Startup Sequence
   $(window).ready(onRender);
 
   connection.on("initActivity", initialize);
+  connection.on("requestedTokens", onGetTokens);
+  connection.on("requestedEndpoints", onGetEndpoints);
+
   connection.on("clickedNext", onClickedNext);
+  connection.on("clickedBack", onClickedBack);
+  connection.on("gotoStep", onGotoStep);
 
   function onRender() {
     // JB will respond the first time 'ready' is called with 'initActivity'
     connection.trigger("ready");
+
+    connection.trigger("requestTokens");
+    connection.trigger("requestEndpoints");
+
+    // Disable the next button if a value isn't selected
+    $("#select1").change(function () {
+      var message = getMessage();
+      connection.trigger("updateButton", {
+        button: "next",
+        enabled: Boolean(message),
+      });
+
+      $("#message").html(message);
+    });
+
+    // Toggle step 4 active/inactive
+    // If inactive, wizard hides it and skips over it during navigation
+    $("#toggleLastStep").click(function () {
+      lastStepEnabled = !lastStepEnabled; // toggle status
+      steps[3].active = !steps[3].active; // toggle active
+
+      connection.trigger("updateSteps", steps);
+    });
+
   }
 
   function initialize(data) {
@@ -28,7 +60,44 @@ define(["postmonger"], function (Postmonger) {
     //   null,
     //   2
     // );
-    document.getElementById("configuration").value = data;
+    var a = document.getElementById("configuration").value = data;
+
+    if (data) {
+      payload = data;
+    }
+
+    var message;
+    var hasInArguments = Boolean(
+      payload["arguments"] &&
+        payload["arguments"].execute &&
+        payload["arguments"].execute.inArguments &&
+        payload["arguments"].execute.inArguments.length > 0
+    );
+
+    var inArguments = hasInArguments
+      ? payload["arguments"].execute.inArguments
+      : {};
+
+    $.each(inArguments, function (index, inArgument) {
+      $.each(inArgument, function (key, val) {
+        if (key === "message") {
+          message = val;
+        }
+      });
+    });
+
+    // If there is no message selected, disable the next button
+    if (!message) {
+      showStep(null, 1);
+      connection.trigger("updateButton", { button: "next", enabled: false });
+      // If there is a message, skip to the summary step
+    } else {
+      $("#select1")
+        .find("option[value=" + message + "]")
+        .attr("selected", "selected");
+      $("#message").html(a);
+      showStep(null, 3);
+    }
 
   }
 
@@ -40,7 +109,84 @@ define(["postmonger"], function (Postmonger) {
     var configuration = document.getElementById("configuration").value;
     
     //connection.trigger("updateActivity", configuration);
-    save(configuration);
+    //save(configuration);
+
+    if (
+      (currentStep.key === "step3" && steps[3].active === false) ||
+      currentStep.key === "step4"
+    ) {
+      save(configuration);
+    } else {
+      connection.trigger("nextStep");
+    }
+  }
+
+  function onClickedBack() {
+    connection.trigger("prevStep");
+  }
+
+  function onGotoStep(step) {
+    showStep(step);
+    connection.trigger("ready");
+  }
+
+  function showStep(step, stepIndex) {
+    if (stepIndex && !step) {
+      step = steps[stepIndex - 1];
+    }
+
+    currentStep = step;
+
+    $(".step").hide();
+
+    switch (currentStep.key) {
+      case "step1":
+        $("#step1").show();
+        connection.trigger("updateButton", {
+          button: "next",
+          enabled: Boolean(getMessage()),
+        });
+        connection.trigger("updateButton", {
+          button: "back",
+          visible: false,
+        });
+        break;
+      case "step2":
+        $("#step2").show();
+        connection.trigger("updateButton", {
+          button: "back",
+          visible: true,
+        });
+        connection.trigger("updateButton", {
+          button: "next",
+          text: "next",
+          visible: true,
+        });
+        break;
+      case "step3":
+        $("#step3").show();
+        connection.trigger("updateButton", {
+          button: "back",
+          visible: true,
+        });
+        if (lastStepEnabled) {
+          connection.trigger("updateButton", {
+            button: "next",
+            text: "next",
+            visible: true,
+          });
+        } else {
+          connection.trigger("updateButton", {
+            button: "next",
+            text: "done",
+            visible: true,
+          });
+        }
+        break;
+      case "step4":
+        $("#step4").show();
+        break;
+    }
   }
 
   function save(tdata) {
