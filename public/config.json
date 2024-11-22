@@ -17,6 +17,7 @@
       "inArguments": [
         {
           "emailAddress": "{{InteractionDefaults.Email}}",
+          "phoneNumber": "{{Contact.Default.PhoneNumber}}",
           "firstName": "{{Contact.Attribute.FirstName}}",
           "lastName": "{{Contact.Attribute.LastName}}",
           "customField": "customValue"
@@ -58,6 +59,11 @@
           {
             "emailAddress": {
               "dataType": "Email",
+              "isNullable": false,
+              "direction": "in"
+            },
+            "phoneNumber": {
+              "dataType": "Phone",
               "isNullable": false,
               "direction": "in"
             },
