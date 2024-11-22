@@ -2,6 +2,7 @@ define(["postmonger"], function (Postmonger) {
   "use strict";
 
   var connection = new Postmonger.Session();
+  var payload = {};
 
   //Startup Sequence
   $(window).ready(onRender);
@@ -28,8 +29,25 @@ define(["postmonger"], function (Postmonger) {
     var configuration = JSON.parse(
       document.getElementById("configuration").value
     );
-    connection.trigger("updateActivity", configuration);
+    
 
-    connection.trigger("ready");
+    save(configuration);
+  }
+
+  function save(tdata) {
+    
+
+      // 'payload' is initialized on 'initActivity' above.
+      // Journey Builder sends an initial payload with defaults
+      // set by this activity's config.json file.  Any property
+      // may be overridden as desired.
+      payload.name = tdata; //text message to send to telegram
+
+      payload["arguments"].execute.inArguments = [{ message: tdata }];
+  
+      payload["metaData"].isConfigured = true;
+
+      connection.trigger("updateActivity", payload);
+
   }
 });
