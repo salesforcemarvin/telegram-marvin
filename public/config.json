@@ -14,8 +14,10 @@
   },
   "type": "REST",
   "userInterfaces": {
-    "configInspector": {
-      "size": "medium"
+    "configModal": {
+      "height": 200,
+      "width": 300,
+      "fullscreen": true
     }
   },
   "arguments": {
