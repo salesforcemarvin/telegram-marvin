@@ -4,6 +4,12 @@ define(["postmonger"], function (Postmonger) {
   var connection = new Postmonger.Session();
   var payload = {};
 
+  var steps = [
+    // initialize to the same value as what's set in config.json for consistency
+    { label: "Step 1", key: "step1" }
+  ];
+  var currentStep = steps[0].key;
+
   //Startup Sequence
   $(window).ready(onRender);
 
@@ -53,7 +59,7 @@ define(["postmonger"], function (Postmonger) {
   
       //payload["metaData"].isConfigured = true;
 
-      connection.trigger("updateActivity", tdata);
+      connection.trigger("updateActivity", payload);
 
       //connection.trigger("ready");
 

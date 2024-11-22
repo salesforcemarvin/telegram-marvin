@@ -20,18 +20,27 @@
   },
   "arguments": {
     "execute": {
-      "inArguments": [
-        {"contactKey": "{{Contact.Key}}"},
-        {"FirstName": "{{Contact.Attribute.JourneyEntrySource.FirstName}}"},
-        {"LastName": "{{Contact.Attribute.JourneyEntrySource.LastName}}"}
-      ],
-      "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
+      "inArguments": [],               
+      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute"
     }
+
   },
   "configurationArguments": {
+    "save": {
+      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/save"
+    },
     "publish": {
-      "url": "https://viber-marvin-26fae9745375.herokuapp.com/publish"
+      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/publish"
+    },
+    "validate": {
+      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/validate"
+    },
+    "stop": {
+      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/stop"
     }
-  }
+  },
+  "wizardSteps": [
+    { "label": "Step 1", "key": "step1" }
+  ]
 }
  
