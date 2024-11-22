@@ -13,7 +13,7 @@
   },
   "type": "REST",
   "userInterfaces": {
-    "configInspector" {
+    "configInspector": {
       "size": "medium"
     }
   },
