@@ -74,7 +74,8 @@ define(["postmonger"], function (Postmonger) {
     // If there is no message selected, disable the next button
     if (!message) {
       showStep(null, 1);
-      connection.trigger("updateButton", { button: "next", enabled: false });
+      connection.trigger("updateButton", { button: "next", enabled: true });
+      //connection.trigger("updateButton", { button: "next", enabled: false });
       // If there is a message, skip to the summary step
     } else {
       
