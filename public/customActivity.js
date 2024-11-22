@@ -80,7 +80,7 @@ define(["postmonger"], function (Postmonger) {
       
       document.getElementById("configuration").value = message;
       $("#message").html(message);
-      showStep(null, 3);
+      //showStep(null, 3);
     }
   }
 
