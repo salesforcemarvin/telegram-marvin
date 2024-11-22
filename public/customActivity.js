@@ -70,6 +70,7 @@ define(["postmonger"], function (Postmonger) {
     });
 
     document.getElementById("configuration").value = message;
+    showStep(null, 3);
   }
 
   function onGetTokens(tokens) {
