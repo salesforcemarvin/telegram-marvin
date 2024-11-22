@@ -138,7 +138,7 @@ define(["postmonger"], function (Postmonger) {
         $("#step1").show();
         connection.trigger("updateButton", {
           button: "next",
-          enabled: Boolean(getMessage()),
+          enabled: true, //Boolean(getMessage()),
         });
         connection.trigger("updateButton", {
           button: "back",
