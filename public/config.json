@@ -16,6 +16,9 @@
     "execute": {
       "inArguments": [
         {
+          "emailAddress": "{{InteractionDefaults.Email}}",
+          "firstName": "{{Contact.Attribute.FirstName}}",
+          "lastName": "{{Contact.Attribute.LastName}}",
           "customField": "customValue"
         }
       ],
@@ -25,16 +28,16 @@
   },
   "configurationArguments": {
     "save": {
-      "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
+      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/save"
     },
     "publish": {
-      "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
+      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/publish"
     },
     "validate": {
-      "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
+      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/validate"
     },
     "stop": {
-      "url": "https://eof2v0n6r7n3qbw.m.pipedream.net/execute"
+      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/stop"
     }
   },
   "wizardSteps": [
@@ -53,6 +56,21 @@
       "execute": {
         "inArguments": [
           {
+            "emailAddress": {
+              "dataType": "Email",
+              "isNullable": false,
+              "direction": "in"
+            },
+            "firstName": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            },
+            "lastName": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            },
             "customField": {
               "dataType": "Text",
               "isNullable": true,
