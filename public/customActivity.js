@@ -31,25 +31,7 @@ define(["postmonger"], function (Postmonger) {
     connection.trigger("requestTokens");
     connection.trigger("requestEndpoints");
 
-    // Disable the next button if a value isn't selected
-    $("#select1").change(function () {
-      var message = getMessage();
-      connection.trigger("updateButton", {
-        button: "next",
-        enabled: Boolean(message),
-      });
-
-      $("#message").html(message);
-    });
-
-    // Toggle step 4 active/inactive
-    // If inactive, wizard hides it and skips over it during navigation
-    $("#toggleLastStep").click(function () {
-      lastStepEnabled = !lastStepEnabled; // toggle status
-      steps[3].active = !steps[3].active; // toggle active
-
-      connection.trigger("updateSteps", steps);
-    });
+    $("#message").html("test 123");
 
   }
 
