@@ -14,7 +14,16 @@
   "type": "REST",
   "arguments": {
     "execute": {
-      "inArguments": [],
+      "inArguments": [
+        {
+          "contactKey": "{{Contact.Key}}",
+          "emailAddress": "{{InteractionDefaults.Email}}",
+          "phoneNumber": "{{Contact.Default.PhoneNumber}}",
+          "firstName": "{{Contact.Attribute.FirstName}}",
+          "lastName": "{{Contact.Attribute.LastName}}",
+          "customField": "customValue"
+        }
+      ],
       "outArguments": [],
       "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute"
     }
