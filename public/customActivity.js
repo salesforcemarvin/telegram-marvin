@@ -28,10 +28,10 @@ define(["postmonger"], function (Postmonger) {
 
   //Save Sequence
   function onClickedNext() {
-    var configuration = JSON.parse(
-      document.getElementById("configuration").value
-    );
-    //var configuration = document.getElementById("configuration").value;
+    // var configuration = JSON.parse(
+    //   document.getElementById("configuration").value
+    // );
+    var configuration = document.getElementById("configuration").value;
     
     connection.trigger("updateActivity", configuration);
 
