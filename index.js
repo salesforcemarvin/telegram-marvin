@@ -20,10 +20,24 @@ app.post("/validate", (req, res) => {
 });
 app.post("/execute", (req, res) => {
   // Endpoint to handle the execution of the custom activity
+
+  const data = {
+    body: {
+      inArguments: [
+        {
+          contactKey: "LACUNA01",
+          emailAddress: "MMMM@gmail.com",
+
+        },
+      ]
+    },
+  };
+
+  
   try {
-    const inArguments = req.body.inArguments[0];
+    //const inArguments = req.body.inArguments[0];
     // const contactKey = inArguments.contactKey;
-    const emailAddress = inArguments.emailAddress;
+    //const emailAddress = inArguments.emailAddress;
     // const firstName = inArguments.firstName;
     // const lastName = inArguments.lastName;
     // const customField = inArguments.customField;
@@ -39,7 +53,10 @@ app.post("/execute", (req, res) => {
       //   data: req.body,
       // });
 
-      const response = axios.get("https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" + emailAddress);
+      const response = axios.get(
+        "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
+        data.body.inArguments[0]
+      );
 
       res.send(response.data);
     } catch (error) {
@@ -58,4 +75,3 @@ app.post("/execute", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
