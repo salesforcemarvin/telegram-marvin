@@ -21,21 +21,21 @@ app.post("/validate", (req, res) => {
 app.post("/execute", (req, res) => {
   // Endpoint to handle the execution of the custom activity
 
-  const data = {
-    body: {
-      inArguments: [
-        {
-          contactKey: "LACUNA01",
-          emailAddress: "MMMM@gmail.com",
-
-        },
-      ]
-    },
-  };
+  //for testing
+  // const data = {
+  //   execute: {
+  //     inArguments: [
+  //       {
+  //         contactKey: "LACUNA01",
+  //         emailAddress: "MMMM@gmail.com",
+  //       },
+  //     ]
+  //   },
+  // };
 
   
   try {
-    //const inArguments = req.execute.inArguments[0];
+    const inArguments = req.execute.inArguments[0];
     // const contactKey = inArguments.contactKey;
     //const emailAddress = inArguments.emailAddress;
     // const firstName = inArguments.firstName;
@@ -55,7 +55,7 @@ app.post("/execute", (req, res) => {
 
       const response = axios.get(
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
-        data.body.inArguments[0].emailAddress
+        req.execute.inArguments[0].emailAddress
       );
 
       res.send(response.data);
