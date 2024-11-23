@@ -34,7 +34,7 @@ app.post("/execute", (req, res) => {
   // };
 
   try {
-    //const inArguments = req.execute.inArguments[0];
+    const inArguments = req.execute.inArguments[0];
     //var inArguments = req["arguments"].execute.inArguments[0];
     //var inArguments = req.execute.inArguments["customField"];
 
@@ -55,17 +55,17 @@ app.post("/execute", (req, res) => {
       //   data: req.body,
       // });
 
-      var message;
-      if (typeof req.execute.inArguments[0] === "undefined") {
-        message = "nyek undefined";
-      } else {
-        message = "dddd"; //JSON.parse(req.execute);
-      }
+      // var message;
+      // if (typeof req === "undefined") {
+      //   message = "nyek undefined";
+      // } else {
+      //   message = "dddd"; //JSON.parse(req.execute);
+      // }
 
       const response = axios.get(
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
           "333 " +
-          message
+          inArguments.customField
       );
 
       res.send(response.data);
