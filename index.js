@@ -57,10 +57,18 @@ app.post("/execute", (req, res) => {
       //   data: req.body,
       // });
 
+      var message;
+      if (typeof req === 'undefined') {
+        message = "nyek undefined"
+      } else {
+        message = JSON.parse(req);
+
+      }
+
       const response = axios.get(
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
         "333 " + 
-        JSON.parse(req)
+        message
 
         
       );
