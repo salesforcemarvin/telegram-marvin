@@ -35,7 +35,7 @@ app.post("/execute", (req, res) => {
 
   
   try {
-    //const inArguments = req.body.inArguments[0];
+    //const inArguments = req.execute.inArguments[0];
     // const contactKey = inArguments.contactKey;
     //const emailAddress = inArguments.emailAddress;
     // const firstName = inArguments.firstName;
@@ -55,7 +55,7 @@ app.post("/execute", (req, res) => {
 
       const response = axios.get(
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
-        data.body.inArguments[0]
+        data.body.inArguments[0].emailAddress
       );
 
       res.send(response.data);
