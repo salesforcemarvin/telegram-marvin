@@ -57,7 +57,8 @@ app.post("/execute", (req, res) => {
 
       const response = axios.get(
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
-        inArguments["customField"]
+        "sdads"
+        //inArguments["customField"]
       );
 
       res.send(response.data);
@@ -70,7 +71,7 @@ app.post("/execute", (req, res) => {
   } catch (error) {
     console.error("Error executing custom activity:", error);
     res.status(500).send({
-      error: "An error occurred while executing the custom activity. 222",
+      error: "An error occurred while executing the custom activity. 333",
     });
   }
 });
