@@ -25,7 +25,7 @@
       ],
       "outArguments": [],
       "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute",
-      "verb": "GET"
+      "verb": "POST"
     }
   },
   "configurationArguments": {
