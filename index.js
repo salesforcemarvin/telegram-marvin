@@ -33,8 +33,20 @@ app.post("/execute", (req, res) => {
   //   },
   // };
 
+  const fs = require("fs");
+  fs.readFile(".public/config.json", "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading the file:", err);
+      return;
+    }
+    const config = JSON.parse(data);
+    console.log(config);
+  });
+
+
+
   try {
-    const inArguments = req.execute.inArguments[0];
+    //const inArguments = req.execute.inArguments[0];
     //var inArguments = req["arguments"].execute.inArguments[0];
     //var inArguments = req.execute.inArguments["customField"];
 
@@ -65,7 +77,8 @@ app.post("/execute", (req, res) => {
       const response = axios.get(
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
           "333 " +
-          inArguments.customField
+          //inArguments.customField
+          config
       );
 
       res.send(response.data);
