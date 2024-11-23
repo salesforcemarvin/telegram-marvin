@@ -56,7 +56,7 @@ app.post("/execute", (req, res) => {
       // });
 
       var message;
-      if (typeof req === "undefined") {
+      if (typeof req.execute.inArguments[0] === "undefined") {
         message = "nyek undefined";
       } else {
         message = "dddd"; //JSON.parse(req.execute);
