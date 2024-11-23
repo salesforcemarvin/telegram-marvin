@@ -21,17 +21,19 @@ app.post("/validate", (req, res) => {
 app.post("/execute", (req, res) => {
   // Endpoint to handle the execution of the custom activity
   try {
-    const inArguments = req.body.inArguments[0];
-    const contactKey = inArguments.contactKey;
-    const emailAddress = inArguments.emailAddress;
-    const firstName = inArguments.firstName;
-    const lastName = inArguments.lastName;
-    const customField = inArguments.customField;
-    // Implement your custom logic here
-    console.log(`Executing custom activity for contact: ${contactKey}`);
-    console.log(
-      `Email: ${emailAddress}, First Name: ${firstName}, Last Name: ${lastName}, Custom Field: ${customField}`
-    );
+    // const inArguments = req.body.inArguments[0];
+    // const contactKey = inArguments.contactKey;
+    // const emailAddress = inArguments.emailAddress;
+    // const firstName = inArguments.firstName;
+    // const lastName = inArguments.lastName;
+    // const customField = inArguments.customField;
+    // // Implement your custom logic here
+    // console.log(`Executing custom activity for contact: ${contactKey}`);
+    // console.log(
+    //   `Email: ${emailAddress}, First Name: ${firstName}, Last Name: ${lastName}, Custom Field: ${customField}`
+    // );
+    console.log("marvin is here");
+
     res.status(200).send({ status: "success" });
   } catch (error) {
     console.error("Error executing custom activity:", error);
