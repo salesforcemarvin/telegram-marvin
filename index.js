@@ -52,7 +52,7 @@ app.post("/execute", async (req, res) => {
   } catch (error) {
     console.error("Error executing custom activity:", error);
     res.status(500).send({
-      error: "An error occurred while executing the custom activity. 1111",
+      error: "An error occurred while executing the custom activity. 222",
     });
   }
 });
