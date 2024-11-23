@@ -39,7 +39,7 @@ app.post("/execute", (req, res) => {
       //   data: req.body,
       // });
 
-      const response = axios.get("https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=Hi Welcome to my group!!");
+      const response = axios.get("https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=marvin!");
 
       res.send(response.data);
     } catch (error) {
