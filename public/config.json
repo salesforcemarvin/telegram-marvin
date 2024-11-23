@@ -16,6 +16,7 @@
     "execute": {
       "inArguments": [
         {
+          "contactKey": "{{Contact.Key}}",
           "emailAddress": "{{InteractionDefaults.Email}}",
           "firstName": "{{Contact.Attribute.FirstName}}",
           "lastName": "{{Contact.Attribute.LastName}}",
@@ -56,6 +57,11 @@
       "execute": {
         "inArguments": [
           {
+            "contactKey": {
+              "dataType": "Text",
+              "isNullable": false,
+              "direction": "in"
+            },
             "emailAddress": {
               "dataType": "Email",
               "isNullable": false,
