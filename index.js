@@ -37,7 +37,8 @@ app.post("/execute", (req, res) => {
   try {
 
     //const inArguments = req["arguments"].execute.inArguments[0];
-    var inArguments = req["arguments"].execute.inArguments[0];
+    //var inArguments = req["arguments"].execute.inArguments[0];
+    var inArguments = req.execute.inArguments[0];
     
     // const contactKey = inArguments.contactKey;
     //const emailAddress = inArguments.emailAddress;
