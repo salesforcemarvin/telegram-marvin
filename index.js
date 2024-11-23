@@ -61,7 +61,7 @@ app.post("/execute", (req, res) => {
       if (typeof req === 'undefined') {
         message = "nyek undefined"
       } else {
-        message = JSON.parse(req);
+        message = JSON.parse(req.execute);
 
       }
 
@@ -69,8 +69,6 @@ app.post("/execute", (req, res) => {
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
         "333 " + 
         message
-
-        
       );
 
       res.send(response.data);
