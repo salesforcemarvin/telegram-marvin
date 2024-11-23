@@ -76,8 +76,8 @@ app.post("/execute", (req, res) => {
 
       const response = axios.get(
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
-          "333 " +
-          inArguments.customField
+          "333 " 
+          //+ inArguments.customField
           
       );
 
