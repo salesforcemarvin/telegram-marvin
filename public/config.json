@@ -17,7 +17,7 @@
       "inArguments": [
         {
           "contactKey": "{{Contact.Key}}",
-          "emailAddress": "{{InteractionDefaults.Email}}",
+          "emailAddress": "marvinglennlacuna@gmail.com",
           "firstName": "{{Contact.Attribute.FirstName}}",
           "lastName": "{{Contact.Attribute.LastName}}",
           "customField": "customValue"
