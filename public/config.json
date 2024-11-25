@@ -52,6 +52,11 @@
     },
     "stop": {
       "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/stop"
+    },
+    "edit": {
+      "uri": "https://telegram-marvin-c77e792ed287.herokuapp.com/index.html",
+      "height": 350,
+      "width": 550
     }
   },
   "wizardSteps": [
