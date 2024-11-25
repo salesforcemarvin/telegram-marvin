@@ -21,30 +21,6 @@ app.post("/validate", (req, res) => {
 app.post("/execute", (req, res) => {
   // Endpoint to handle the execution of the custom activity
 
-  //for testing
-  // const data = {
-  //   execute: {
-  //     inArguments: [
-  //       {
-  //         contactKey: "LACUNA01",
-  //         emailAddress: "MMMM@gmail.com",
-  //       },
-  //     ]
-  //   },
-  // };
-
-  // const fs = require("fs");
-  // fs.readFile(".public/config.json", "utf8", (err, data) => {
-  //   if (err) {
-  //     console.error("Error reading the file:", err);
-  //     return;
-  //   }
-  //   const config = JSON.parse(data);
-  //   console.log(config);
-  // });
-
-
-
   try {
     //const inArguments = req.execute.inArguments[0];
     //var inArguments = req["arguments"].execute.inArguments[0];
@@ -67,17 +43,10 @@ app.post("/execute", (req, res) => {
       //   data: req.body,
       // });
 
-      // var message;
-      // if (typeof req === "undefined") {
-      //   message = "nyek undefined";
-      // } else {
-      //   message = "dddd"; //JSON.parse(req.execute);
-      // }
-
       const response = axios.get(
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
           "333 " 
-          //+ inArguments.customField
+          + req.execute.url
           
       );
 
@@ -98,3 +67,26 @@ app.post("/execute", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+
+  //for testing
+  // const data = {
+  //   execute: {
+  //     inArguments: [
+  //       {
+  //         contactKey: "LACUNA01",
+  //         emailAddress: "MMMM@gmail.com",
+  //       },
+  //     ]
+  //   },
+  // };
+
+  // const fs = require("fs");
+  // fs.readFile(".public/config.json", "utf8", (err, data) => {
+  //   if (err) {
+  //     console.error("Error reading the file:", err);
+  //     return;
+  //   }
+  //   const config = JSON.parse(data);
+  //   console.log(config);
+  // });
