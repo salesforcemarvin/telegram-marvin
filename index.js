@@ -43,12 +43,23 @@ app.post("/execute", (req, res) => {
       //   data: req.body,
       // });
 
+      //merge the array of objects.
+      var aArgs = req.body.inArguments;
+      var oArgs = {};
+      for (var i = 0; i < aArgs.length; i++) {
+        for (var key in aArgs[i]) {
+          oArgs[key] = aArgs[i][key];
+        }
+      }
+
+      var email = oArgs.emailAddress;
+
       var url =
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=";
       if (yow === "undefined") {
         const response = axios.get(url + "marvin");
       } else {
-        const response = axios.get(yow.execute.url);
+        const response = axios.get(url + email);
       }
 
       res.send(response.data);
