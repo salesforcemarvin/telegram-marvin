@@ -21,7 +21,9 @@
           "firstName": "{{Contact.Attribute.FirstName}}",
           "firstName1": "{{Contact.Attribute.JourneyEntrySource.LastName}",
           "lastName1": "{{Contact.Attribute.LastName}}",
-          "customField": "customValue"
+          "customField": "customValue",
+          "chat_id": "@vcbsalesforce",
+          "text": "Marvin yow"
         }
       ],
       "outArguments": [
@@ -92,7 +94,17 @@
               "dataType": "Text",
               "isNullable": true,
               "direction": "in"
-            }
+            },
+            "chat_id": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+          },
+          "text": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+          }
           }
         ]
       }

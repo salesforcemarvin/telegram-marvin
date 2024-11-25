@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+const config = require("./public/config.json");
 app.post("/save", (req, res) => {
   // Handle save request
   res.sendStatus(200);
@@ -21,48 +22,34 @@ app.post("/validate", (req, res) => {
 app.post("/execute/", (req, res) => {
   // Endpoint to handle the execution of the custom activity
 
+  //let channel = "@vcbsalesforce";
+  let contact = "632717898";
+  const token = "7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs";
+  const endpoint = "https://api.telegram.org/bot";
+  const url = `${endpoint}${token}/`;
+
+  console.log(config);
   try {
-    //const inArguments = req.execute.inArguments[0];
-
-    //var yow = JSON.parse(req);
-    //var yow = req;
-
-    // const contactKey = inArguments.contactKey;
-    //const emailAddress = inArguments.emailAddress;
-    // const firstName = inArguments.firstName;
-    // const lastName = inArguments.lastName;
-    // const customField = inArguments.customField;
-    // // Implement your custom logic here
-    // console.log(`Executing custom activity for contact: ${contactKey}`);
-    // console.log(
-    //   `Email: ${emailAddress}, First Name: ${firstName}, Last Name: ${lastName}, Custom Field: ${customField}`
-    // );
-
     try {
       // const response = await axios.post("https://api.example.com/endpoint", {
       //   data: req.body,
       // });
 
       //merge the array of objects.
-      var aArgs = req.body.inArguments;
-      var oArgs = {};
-      for (var i = 0; i < aArgs.length; i++) {
-        for (var key in aArgs[i]) {
-          oArgs[key] = aArgs[i][key];
-        }
-      }
-
-      // var email = oArgs.emailAddress;
-      var text = "marvin test";
-
-      var url =
-        "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=";
-      // if (yow === "undefined") {
-      //   const response = axios.get(url + "marvin");
-      // } else {
-      //   const response = axios.get(url + email);
+      const aArgs = config.arguments.execute.inArguments[0];
+      // var oArgs = {};
+      // for (var i = 0; i < aArgs.length; i++) {
+      //   for (var key in aArgs[i]) {
+      //     oArgs[key] = aArgs[i][key];
+      //   }
       // }
-      const response = axios.get(url + text);
+
+      const chat_id = aArgs.chat_id;
+      const text = aArgs.text;
+
+      const response = axios.get(
+        `${url}sendMessage?chat_id=${chat_id}&text=${text}`
+      );
 
       res.send(response.data);
     } catch (error) {
