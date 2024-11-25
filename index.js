@@ -36,7 +36,7 @@ app.post("/execute/", (req, res) => {
       // });
 
       //merge the array of objects.
-      const aArgs = req.arguments.execute.inArguments[0];
+      const aArgs = config.arguments.execute.inArguments[0];
       // var oArgs = {};
       // for (var i = 0; i < aArgs.length; i++) {
       //   for (var key in aArgs[i]) {
@@ -49,7 +49,7 @@ app.post("/execute/", (req, res) => {
       const contactKey = aArgs.contactKey;
 
       const response = axios.get(
-        `${url}sendMessage?chat_id=${chat_id}&text=${contactKey}`
+        `${url}sendMessage?chat_id=${chat_id}&text=${text}`
       );
 
       res.send(response.data);
