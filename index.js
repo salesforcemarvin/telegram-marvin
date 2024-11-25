@@ -18,7 +18,7 @@ app.post("/validate", (req, res) => {
   // Handle validate request
   res.sendStatus(200);
 });
-app.post("/execute", (req, res) => {
+app.post("/execute/", (req, res) => {
   // Endpoint to handle the execution of the custom activity
 
   try {
@@ -44,23 +44,25 @@ app.post("/execute", (req, res) => {
       // });
 
       //merge the array of objects.
-      var aArgs = req.body.inArguments;
-      var oArgs = {};
-      for (var i = 0; i < aArgs.length; i++) {
-        for (var key in aArgs[i]) {
-          oArgs[key] = aArgs[i][key];
-        }
-      }
+      // var aArgs = req.body.inArguments;
+      // var oArgs = {};
+      // for (var i = 0; i < aArgs.length; i++) {
+      //   for (var key in aArgs[i]) {
+      //     oArgs[key] = aArgs[i][key];
+      //   }
+      // }
 
-      var email = oArgs.emailAddress;
+      // var email = oArgs.emailAddress;
+      var text = "marvin test";
 
       var url =
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=";
-      if (yow === "undefined") {
-        const response = axios.get(url + "marvin");
-      } else {
-        const response = axios.get(url + email);
-      }
+      // if (yow === "undefined") {
+      //   const response = axios.get(url + "marvin");
+      // } else {
+      //   const response = axios.get(url + email);
+      // }
+      const response = axios.get(url + text);
 
       res.send(response.data);
     } catch (error) {
