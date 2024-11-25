@@ -46,9 +46,10 @@ app.post("/execute/", (req, res) => {
 
       const chat_id = aArgs.chat_id;
       const text = aArgs.text;
+      const contactKey = aArgs.contactKey;
 
       const response = axios.get(
-        `${url}sendMessage?chat_id=${chat_id}&text=${text}`
+        `${url}sendMessage?chat_id=${chat_id}&text=${contactKey}`
       );
 
       res.send(response.data);
