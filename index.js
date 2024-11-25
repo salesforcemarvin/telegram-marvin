@@ -44,13 +44,13 @@ app.post("/execute/", (req, res) => {
       // });
 
       //merge the array of objects.
-      // var aArgs = req.body.inArguments;
-      // var oArgs = {};
-      // for (var i = 0; i < aArgs.length; i++) {
-      //   for (var key in aArgs[i]) {
-      //     oArgs[key] = aArgs[i][key];
-      //   }
-      // }
+      var aArgs = req.body.inArguments;
+      var oArgs = {};
+      for (var i = 0; i < aArgs.length; i++) {
+        for (var key in aArgs[i]) {
+          oArgs[key] = aArgs[i][key];
+        }
+      }
 
       // var email = oArgs.emailAddress;
       var text = "marvin test";

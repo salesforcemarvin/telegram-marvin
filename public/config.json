@@ -23,7 +23,10 @@
           "customField": "customValue"
         }
       ],
-      "outArguments": [],
+      "outArguments": [{
+        "date_received": "25-11-2024"
+      }
+      ],
       "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute",
       "verb": "POST",
       "body": "",
