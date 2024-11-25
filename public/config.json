@@ -27,8 +27,9 @@
       "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute",
       "verb": "POST",
       "body": "",
-      "format": "json", 
-      "useJWt": false, 
+      "header": "",
+      "format": "json",
+      "useJwt": false,
       "timeout": 10000
     }
   },
