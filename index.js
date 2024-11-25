@@ -24,7 +24,8 @@ app.post("/execute", (req, res) => {
   try {
     //const inArguments = req.execute.inArguments[0];
 
-    var yow = JSON.parse(req);
+    //var yow = JSON.parse(req);
+    var yow = req;
 
     // const contactKey = inArguments.contactKey;
     //const emailAddress = inArguments.emailAddress;
@@ -44,7 +45,7 @@ app.post("/execute", (req, res) => {
 
       var url =
         "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=";
-      if (yow === undefined) {
+      if (yow === "undefined") {
         const response = axios.get(url + "marvin");
       } else {
         const response = axios.get(yow.execute.url);
