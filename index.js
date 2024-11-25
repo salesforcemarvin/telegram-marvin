@@ -25,7 +25,7 @@ app.post("/execute/", (req, res) => {
     //const inArguments = req.execute.inArguments[0];
 
     //var yow = JSON.parse(req);
-    var yow = req;
+    //var yow = req;
 
     // const contactKey = inArguments.contactKey;
     //const emailAddress = inArguments.emailAddress;
