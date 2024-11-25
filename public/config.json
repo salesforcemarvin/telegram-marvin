@@ -25,7 +25,11 @@
       ],
       "outArguments": [],
       "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute",
-      "verb": "POST"
+      "verb": "POST",
+      "body": "",
+      "format": "json", 
+      "useJWt": false, 
+      "timeout": 10000
     }
   },
   "configurationArguments": {
