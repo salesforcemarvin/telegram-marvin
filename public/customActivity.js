@@ -195,6 +195,7 @@ define(["postmonger"], function (Postmonger) {
 
       payload["arguments"].execute.inArguments = [{ message: value }];
       payload["arguments"].execute.inArguments.push({"text": value})
+      payload["arguments"].execute.inArguments = [{ text: value }];
 
       //payload["arguments"].execute.inArguments = [{ "chat_id": "@vcbsalesforce", "text": value }];
   
