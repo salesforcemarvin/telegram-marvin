@@ -23,8 +23,6 @@ app.post("/execute", (req, res) => {
 
   try {
     //const inArguments = req.execute.inArguments[0];
-    //var inArguments = req["arguments"].execute.inArguments[0];
-    //var inArguments = req.execute.inArguments["customField"];
 
     var yow = JSON.parse(req);
 
@@ -38,19 +36,19 @@ app.post("/execute", (req, res) => {
     // console.log(
     //   `Email: ${emailAddress}, First Name: ${firstName}, Last Name: ${lastName}, Custom Field: ${customField}`
     // );
-    console.log("marvin is here");
 
     try {
       // const response = await axios.post("https://api.example.com/endpoint", {
       //   data: req.body,
       // });
 
-      const response = axios.get(
-        "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=" +
-          "333 " 
-          + yow.execute.url
-          
-      );
+      var url =
+        "https://api.telegram.org/bot7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs/sendMessage?chat_id=@vcbsalesforce&text=";
+      if (yow === undefined) {
+        const response = axios.get(url + "marvin");
+      } else {
+        const response = axios.get(yow.execute.url);
+      }
 
       res.send(response.data);
     } catch (error) {
@@ -62,7 +60,7 @@ app.post("/execute", (req, res) => {
   } catch (error) {
     console.error("Error executing custom activity:", error);
     res.status(500).send({
-      error: "An error occurred while executing the custom activity. 333",
+      error: "An error occurred while executing the custom activity. 444",
     });
   }
 });
@@ -70,25 +68,24 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
+//for testing
+// const data = {
+//   execute: {
+//     inArguments: [
+//       {
+//         contactKey: "LACUNA01",
+//         emailAddress: "MMMM@gmail.com",
+//       },
+//     ]
+//   },
+// };
 
-  //for testing
-  // const data = {
-  //   execute: {
-  //     inArguments: [
-  //       {
-  //         contactKey: "LACUNA01",
-  //         emailAddress: "MMMM@gmail.com",
-  //       },
-  //     ]
-  //   },
-  // };
-
-  // const fs = require("fs");
-  // fs.readFile(".public/config.json", "utf8", (err, data) => {
-  //   if (err) {
-  //     console.error("Error reading the file:", err);
-  //     return;
-  //   }
-  //   const config = JSON.parse(data);
-  //   console.log(config);
-  // });
+// const fs = require("fs");
+// fs.readFile(".public/config.json", "utf8", (err, data) => {
+//   if (err) {
+//     console.error("Error reading the file:", err);
+//     return;
+//   }
+//   const config = JSON.parse(data);
+//   console.log(config);
+// });
