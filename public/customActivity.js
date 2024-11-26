@@ -198,9 +198,6 @@ define(["postmonger"], function (Postmonger) {
         'chat_id': "@vcbsalesforce"
       },
       {
-        'text1': "marvin 123"
-      },
-      {
         'emailAddress': '{{InteractionDefaults.Email}}'
       }
     ];
@@ -210,7 +207,7 @@ define(["postmonger"], function (Postmonger) {
     payload["metaData"].isConfigured = true;
 
 
-    console.log("LOG AGAIN" + payload);
+    //console.log("LOG AGAIN" + payload);
 
     // get the option that the user selected and save it to
     console.log("------------ triggering:updateActivity({obj}) ----------------");

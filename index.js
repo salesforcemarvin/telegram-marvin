@@ -29,9 +29,12 @@ app.post("/stop", async function (req, res) {
   res.send("Done");
 });
 
-app.post("/execute/", async function (req, res) {
+app.post("/execute", async function (req, res) {
   // Endpoint to handle the execution of the custom activity
 
+  console.log("RUNNING CUSTOM ACTIVITY HERE");
+  console.log("-------REQUEST------");
+  
   let channel = "@vcbsalesforce";
   let contact = "632717898";
   const token = "7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs";
