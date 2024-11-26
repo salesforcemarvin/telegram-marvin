@@ -205,15 +205,15 @@ define(["postmonger"], function (Postmonger) {
 
 
     //console.log("LOG AGAIN" + payload);
-    let inArguments = payload.arguments.execute.inArguments;
+    let inArguments = payload.arguments.execute.inArguments[0];
 
     console.log(inArguments.length);
-    console.log(inArguments[0]['chat_id']);
+    console.log(inArguments[0][0]);
     console.log(value);
 
     for (i = 0; i < inArguments.length; i++) {
       console.log(Object.keys(inArguments[i]))
-      if (Object.keys(inArguments[i])[0] == 'text1') {
+      if (Object.keys(inArguments[i]) == 'text1') {
         text1 = inArguments[i].text1
       }
     }
