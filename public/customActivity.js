@@ -195,18 +195,6 @@ define(["postmonger"], function (Postmonger) {
 
     payload["arguments"].execute.inArguments = [
       {
-        'contactKey': "{{Contact.Key}}",
-        'emailAddress': "{{InteractionDefaults.Email}}",
-        'firstName': "{{Contact.Attribute.FirstName}}",
-        lastName1: "{{Contact.Attribute.LastName}}",
-        customField: "customValue",
-        chat_id: "@vcbsalesforce",
-        text: "test123",
-      },
-    ];
-
-    payload["arguments"].execute.inArguments = [
-      {
         'chat_id': "@vcbsalesforce"
       },
       {
