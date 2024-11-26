@@ -205,7 +205,7 @@ define(["postmonger"], function (Postmonger) {
 
 
     //console.log("LOG AGAIN" + payload);
-    console.log(payload.arguments);
+    console.log(payload.arguments.execute);
     console.log(value);
 
 
