@@ -33,18 +33,16 @@ define(["postmonger"], function (Postmonger) {
 
     var message = getMessage();
     $("#message").html(message);
-
   }
 
   function initialize(data) {
-
     // document.getElementById("configuration").value = JSON.stringify(
     //   data,
     //   null,
     //   2
     // );
-    
-    console.log('-------- triggered:onInitActivity({obj}) --------');
+
+    console.log("-------- triggered:onInitActivity({obj}) --------");
     if (data) {
       payload = data;
     }
@@ -69,8 +67,6 @@ define(["postmonger"], function (Postmonger) {
       });
     });
 
-    
-
     // If there is no message selected, disable the next button
     if (!message) {
       showStep(null, 1);
@@ -78,7 +74,6 @@ define(["postmonger"], function (Postmonger) {
       //connection.trigger("updateButton", { button: "next", enabled: false });
       // If there is a message, skip to the summary step
     } else {
-      
       document.getElementById("configuration").value = message;
       $("#message").html(message);
       //showStep(null, 3);
@@ -101,7 +96,7 @@ define(["postmonger"], function (Postmonger) {
     //   document.getElementById("configuration").value
     // );
     //var configuration = document.getElementById("configuration").value;
-    
+
     //connection.trigger("updateActivity", configuration);
     //save(configuration);
 
@@ -184,34 +179,55 @@ define(["postmonger"], function (Postmonger) {
   }
 
   function save() {
-    
-      var value = getMessage();
+    var value = getMessage();
 
-      // 'payload' is initialized on 'initActivity' above.
-      // Journey Builder sends an initial payload with defaults
-      // set by this activity's config.json file.  Any property
-      // may be overridden as desired.
-      payload.name = value; //text message to send to telegram
+    // 'payload' is initialized on 'initActivity' above.
+    // Journey Builder sends an initial payload with defaults
+    // set by this activity's config.json file.  Any property
+    // may be overridden as desired.
+    payload.name = value; //text message to send to telegram
 
-      payload["arguments"].execute.inArguments = [{ message: value }];
-      payload["arguments"].execute.inArguments.push({"text": value})
-      payload["arguments"].execute.inArguments = [{ text: value }];
+    console.log(payload);
+    console.log(value);
 
-      //payload["arguments"].execute.inArguments = [{ "chat_id": "@vcbsalesforce", "text": value }];
-  
-      payload["metaData"].isConfigured = true;
+    //payload["arguments"].execute.inArguments = [{ message: value }];
+    //payload["arguments"].execute.inArguments.push({"text": value})
 
+    payload["arguments"].execute.inArguments = [
+      {
+        contactKey: "{{Contact.Key}}",
+        emailAddress: "{{InteractionDefaults.Email}}",
+        firstName: "{{Contact.Attribute.FirstName}}",
+        firstName1: "{{Contact.Attribute.JourneyEntrySource.LastName}",
+        lastName1: "{{Contact.Attribute.LastName}}",
+        customField: "customValue",
+        chat_id: "@vcbsalesforce",
+        text: "test123",
+      },
+    ];
 
-      // get the option that the user selected and save it to
-      console.log('------------ triggering:updateActivity({obj}) ----------------');
-      console.log('Sending message back to updateActivity');
-      console.log('saving\n', value);
-      console.log('--------------------------------------------------------------');
-      connection.trigger("updateActivity", payload);
+    //payload["arguments"].execute.inArguments = [{ "chat_id": "@vcbsalesforce", "text": value }];
 
+    payload["metaData"].isConfigured = true;
+
+    // get the option that the user selected and save it to
+    console.log(
+      "------------ triggering:updateActivity({obj}) ----------------"
+    );
+    console.log("Sending message back to updateActivity");
+    console.log("saving\n", value);
+    console.log(
+      "--------------------------------------------------------------"
+    );
+    connection.trigger("updateActivity", payload);
   }
 
   function getMessage() {
     return document.getElementById("configuration").value;
   }
+
+  $("#submit-this").click(function (e) {
+    console.log("test this");
+    save();
+  });
 });
