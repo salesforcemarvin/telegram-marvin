@@ -212,6 +212,8 @@ define(["postmonger"], function (Postmonger) {
     );
     console.log("Sending message back to updateActivity");
     console.log("saving\n", value);
+    console.log(JSON.parse(payload));
+    console.log(payload);
     console.log(
       "--------------------------------------------------------------"
     );
