@@ -48,8 +48,8 @@ app.post("/execute", async function (req, res) {
       //   data: req.body,
       // });
 
-      //let contactKey = req.body.keyValue
-      let inArguments = req.body.inArguments.execute.inArguments;
+      let contactKey = req.body.keyValue
+      //let inArguments = req.body.inArguments.execute.inArguments;
       //let inArguments = req.body.inArguments
 
       // console.log(inArguments.length);
@@ -57,7 +57,7 @@ app.post("/execute", async function (req, res) {
       // console.log(inArguments[1]['emailAddress']);
       // console.log(inArguments[2]['customMessage']);
 
-      const customMessage = inArguments[0]['chat_id'];
+      //const customMessage = inArguments[0]['chat_id'];
 
 
       const response = axios.get(
