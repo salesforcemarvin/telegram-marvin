@@ -29,10 +29,10 @@ app.post("/stop", async function (req, res) {
   res.send("Done");
 });
 
-app.post("/execute/", function (req, res) {
+app.post("/execute/", async function (req, res) {
   // Endpoint to handle the execution of the custom activity
 
-  //let channel = "@vcbsalesforce";
+  let channel = "@vcbsalesforce";
   let contact = "632717898";
   const token = "7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs";
   const endpoint = "https://api.telegram.org/bot";
@@ -46,7 +46,7 @@ app.post("/execute/", function (req, res) {
       // });
 
       let contactKey = req.body.keyValue
-      let inArguments = req.body.inArguments
+      //let inArguments = req.body.inArguments
 
       //merge the array of objects.
       //const aArgs = config.arguments.execute.inArguments[0];
@@ -64,7 +64,7 @@ app.post("/execute/", function (req, res) {
       // const contactKey = aArgs.contactKey;
 
       const response = axios.get(
-        `${url}sendMessage?chat_id=${chat_id}&text=${contactKey}`
+        `${url}sendMessage?chat_id=${channel}&text=${contactKey}`
       );
 
       res.send(response.data);

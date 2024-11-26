@@ -16,28 +16,22 @@
     "execute": {
       "inArguments": [
         {
-          "contactKey": "{{Contact.Key}}",
-          "emailAddress": "{{InteractionDefaults.Email}}",
-          "firstName": "{{Contact.Attribute.FirstName}}",
-          "firstName1": "{{Contact.Attribute.JourneyEntrySource.LastName}",
-          "lastName1": "{{Contact.Attribute.LastName}}",
-          "customField": "customValue",
-          "chat_id": "@vcbsalesforce",
-          "text": "Marvin 123"
-        }
-      ],
-      "outArguments": [
+          "customMessage": "{{Interaction.customMessage}}"
+        },
         {
-          "foundSignupDate": ""
+          "emailAddress": "{{InteractionDefaults.Email}}"
+        },
+        {
+          "phoneNumber": "{{Contact.Default.PhoneNumber}}"
         }
       ],
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute",
-      "verb": "POST",
-      "body": "",
-      "header": "",
-      "format": "json",
-      "useJwt": false,
-      "timeout": 10000
+      "outArguments": [],
+			"timeout": 100000,
+			"retryCount": 1,
+			"retryDelay": 10000,
+			"concurrentRequests" : 5,
+      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute"
+
     }
   },
   "configurationArguments": {
@@ -52,11 +46,6 @@
     },
     "stop": {
       "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/stop"
-    },
-    "edit": {
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/index.html",
-      "height": 350,
-      "width": 550
     }
   },
   "wizardSteps": [
@@ -70,49 +59,30 @@
       "size": "medium"
     }
   },
-  "schema": {
-    "arguments": {
-      "execute": {
-        "inArguments": [
-          {
-            "contactKey": {
-              "dataType": "Text",
-              "isNullable": false,
-              "direction": "in"
-            },
-            "emailAddress": {
-              "dataType": "Email",
-              "isNullable": false,
-              "direction": "in"
-            },
-            "firstName": {
-              "dataType": "Text",
-              "isNullable": true,
-              "direction": "in"
-            },
-            "lastName": {
-              "dataType": "Text",
-              "isNullable": true,
-              "direction": "in"
-            },
-            "customField": {
-              "dataType": "Text",
-              "isNullable": true,
-              "direction": "in"
-            },
-            "chat_id": {
-              "dataType": "Text",
-              "isNullable": true,
-              "direction": "in"
-            },
-            "text": {
-              "dataType": "Text",
-              "isNullable": true,
-              "direction": "in"
-            }
-          }
-        ]
+  "outcomes": [
+    {
+      "arguments": {
+        "branchResult": "true"
+      },
+      "metaData": {
+        "label": "In Segment"
+      }
+    },
+    {
+      "arguments": {
+        "branchResult": "false"
+      },
+      "metaData": {
+        "label": "Not In Segment"
+      }
+    },
+    {
+      "arguments": {
+        "branchResult": "default"
+      },
+      "metaData": {
+        "label": "Not in Data Cloud"
       }
     }
-  }
+  ]
 }
