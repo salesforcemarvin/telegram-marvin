@@ -7,19 +7,29 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 const config = require("./public/config.json");
-app.post("/save", (req, res) => {
+app.post("/save", function (req, res)  {
   // Handle save request
+  console.log("SAVE REQUEST");
+  console.log(req.body);
   res.sendStatus(200);
 });
-app.post("/publish", (req, res) => {
+app.post("/publish", function (req, res)  {
   // Handle publish request
   res.sendStatus(200);
 });
-app.post("/validate", (req, res) => {
+app.post("/validate", function (req, res) {
   // Handle validate request
+  console.log("VALIDATE REQUEST");
+  console.log(req.body);
   res.sendStatus(200);
 });
-app.post("/execute/", (req, res) => {
+app.post("/stop", async function (req, res) {
+  console.log("STOPPING JOURNEY");
+  console.log(req.body);
+  res.send("Done");
+});
+
+app.post("/execute/", function (req, res) {
   // Endpoint to handle the execution of the custom activity
 
   //let channel = "@vcbsalesforce";
@@ -28,16 +38,19 @@ app.post("/execute/", (req, res) => {
   const endpoint = "https://api.telegram.org/bot";
   const url = `${endpoint}${token}/`;
 
-  console.log(config);
+  // console.log(config);
   try {
     try {
       // const response = await axios.post("https://api.example.com/endpoint", {
       //   data: req.body,
       // });
 
+      let contactKey = req.body.keyValue
+      let inArguments = req.body.inArguments
+
       //merge the array of objects.
       //const aArgs = config.arguments.execute.inArguments[0];
-      const aArgs = req.arguments.execute.inArguments[0];
+
       // var oArgs = {};
       // for (var i = 0; i < aArgs.length; i++) {
       //   for (var key in aArgs[i]) {
@@ -45,12 +58,13 @@ app.post("/execute/", (req, res) => {
       //   }
       // }
 
-      const chat_id = aArgs.chat_id;
-      const text = aArgs.text;
-      const contactKey = aArgs.contactKey;
+      // const aArgs = req.arguments.execute.inArguments[0];
+      // const chat_id = aArgs.chat_id;
+      // const text = aArgs.text;
+      // const contactKey = aArgs.contactKey;
 
       const response = axios.get(
-        `${url}sendMessage?chat_id=${chat_id}&text=${text}`
+        `${url}sendMessage?chat_id=${chat_id}&text=${contactKey}`
       );
 
       res.send(response.data);
