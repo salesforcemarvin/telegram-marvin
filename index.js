@@ -49,7 +49,9 @@ app.post("/execute", async function (req, res) {
       // });
 
       //let contactKey = req.body.keyValue
-      let inArguments = req.body.inArguments;
+      //let inArguments = req.body.inArguments;
+      let inArguments = req.body.arguments.execute.inArguments;;
+
 
       console.log(inArguments.length);
       console.log(inArguments[0]['chat_id']);
