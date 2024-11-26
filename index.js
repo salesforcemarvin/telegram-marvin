@@ -36,7 +36,8 @@ app.post("/execute/", (req, res) => {
       // });
 
       //merge the array of objects.
-      const aArgs = config.arguments.execute.inArguments[0];
+      //const aArgs = config.arguments.execute.inArguments[0];
+      const aArgs = req.arguments.execute.inArguments[0];
       // var oArgs = {};
       // for (var i = 0; i < aArgs.length; i++) {
       //   for (var key in aArgs[i]) {

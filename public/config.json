@@ -23,7 +23,7 @@
           "lastName1": "{{Contact.Attribute.LastName}}",
           "customField": "customValue",
           "chat_id": "@vcbsalesforce",
-          "text": "Marvin yow"
+          "text": "Marvin 123"
         }
       ],
       "outArguments": [
