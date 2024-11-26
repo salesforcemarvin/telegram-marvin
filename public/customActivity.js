@@ -196,7 +196,11 @@ define(["postmonger"], function (Postmonger) {
       },
       {
         'emailAddress': '{{InteractionDefaults.Email}}'
-      }
+      },
+      {
+        'customMessage': value
+      },
+      
     ];
 
     //payload["arguments"].execute.inArguments = [{ "chat_id": "@vcbsalesforce", "text": value }];
@@ -217,7 +221,8 @@ define(["postmonger"], function (Postmonger) {
     console.log(inArguments.length);
     console.log(inArguments[0]['chat_id']);
     console.log(inArguments[0]['emailAddress']);
-    console.log(value);
+    console.log(inArguments[0]['customMessage']);
+    //console.log(value);
   }
 
   function getMessage() {

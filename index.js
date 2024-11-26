@@ -50,22 +50,19 @@ app.post("/execute", async function (req, res) {
 
       //let contactKey = req.body.keyValue
       let inArguments = req.body.inArguments;
-      
-      let text1;
-      for (i = 0; i < inArguments.length; i++) {
-        // console.log(Object.keys(inArguments[i])[0])
-        if (Object.keys(inArguments[i])[0] == 'text1') {
-          text1 = inArguments[i].text1
-        }
-      }
+
+      console.log(inArguments.length);
+      console.log(inArguments[0]['chat_id']);
+      console.log(inArguments[0]['emailAddress']);
+      console.log(inArguments[0]['customMessage']);
 
       // const aArgs = req.arguments.execute.inArguments[0];
       // const chat_id = aArgs.chat_id;
-      // const text = aArgs.text;
+      const customMessage =inArguments[0]['customMessage'];
       // const contactKey = aArgs.contactKey;
 
       const response = axios.get(
-        `${url}sendMessage?chat_id=${channel}&text=${text1}`
+        `${url}sendMessage?chat_id=${channel}&text=${customMessage}`
       );
 
       res.send(response.data);
