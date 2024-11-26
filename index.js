@@ -45,18 +45,16 @@ app.post("/execute/", async function (req, res) {
       //   data: req.body,
       // });
 
-      let contactKey = req.body.keyValue
-      //let inArguments = req.body.inArguments
-
-      //merge the array of objects.
-      //const aArgs = config.arguments.execute.inArguments[0];
-
-      // var oArgs = {};
-      // for (var i = 0; i < aArgs.length; i++) {
-      //   for (var key in aArgs[i]) {
-      //     oArgs[key] = aArgs[i][key];
-      //   }
-      // }
+      //let contactKey = req.body.keyValue
+      let inArguments = req.body.inArguments
+      
+      let text1;
+      for (i = 0; i < inArguments.length; i++) {
+        // console.log(Object.keys(inArguments[i])[0])
+        if (Object.keys(inArguments[i])[0] == 'text1') {
+          text1 = inArguments[i].text1
+        }
+      }
 
       // const aArgs = req.arguments.execute.inArguments[0];
       // const chat_id = aArgs.chat_id;
@@ -64,7 +62,7 @@ app.post("/execute/", async function (req, res) {
       // const contactKey = aArgs.contactKey;
 
       const response = axios.get(
-        `${url}sendMessage?chat_id=${channel}&text=${contactKey}`
+        `${url}sendMessage?chat_id=${channel}&text=${text1}`
       );
 
       res.send(response.data);
