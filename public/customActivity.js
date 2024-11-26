@@ -205,18 +205,7 @@ define(["postmonger"], function (Postmonger) {
 
 
     //console.log("LOG AGAIN" + payload);
-    let inArguments = payload.arguments.execute.inArguments[0];
-
-    console.log(inArguments.length);
-    console.log(inArguments[0][0]);
-    console.log(value);
-
-    for (i = 0; i < inArguments.length; i++) {
-      console.log(Object.keys(inArguments[i]))
-      if (Object.keys(inArguments[i]) == 'text1') {
-        text1 = inArguments[i].text1
-      }
-    }
+    let inArguments = payload.arguments.execute.inArguments;
 
     // get the option that the user selected and save it to
     console.log("------------ triggering:updateActivity({obj}) ----------------");
@@ -224,6 +213,11 @@ define(["postmonger"], function (Postmonger) {
     console.log("saving\n", value);
 
     connection.trigger("updateActivity", payload);
+
+    console.log(inArguments.length);
+    console.log(inArguments[0]['chat_id']);
+    console.log(inArguments[0]['emailAddress']);
+    console.log(value);
   }
 
   function getMessage() {
