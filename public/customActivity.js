@@ -205,8 +205,17 @@ define(["postmonger"], function (Postmonger) {
 
 
     //console.log("LOG AGAIN" + payload);
-    console.log(payload.arguments.execute);
+    let inArguments = payload.arguments.execute.inArguments;
+
+    console.log(payload.arguments.execute.inArguments);
     console.log(value);
+
+    for (i = 0; i < inArguments.length; i++) {
+      console.log(Object.keys(inArguments[i])[0])
+      if (Object.keys(inArguments[i])[0] == 'text1') {
+        text1 = inArguments[i].text1
+      }
+    }
 
 
     // get the option that the user selected and save it to

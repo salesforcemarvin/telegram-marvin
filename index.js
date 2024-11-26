@@ -49,7 +49,7 @@ app.post("/execute", async function (req, res) {
       // });
 
       //let contactKey = req.body.keyValue
-      let inArguments = req.body.inArguments
+      let inArguments = req.body.inArguments;
       
       let text1;
       for (i = 0; i < inArguments.length; i++) {
