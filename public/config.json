@@ -58,31 +58,5 @@
     "configInspector": {
       "size": "medium"
     }
-  },
-  "outcomes": [
-    {
-      "arguments": {
-        "branchResult": "true"
-      },
-      "metaData": {
-        "label": "In Segment"
-      }
-    },
-    {
-      "arguments": {
-        "branchResult": "false"
-      },
-      "metaData": {
-        "label": "Not In Segment"
-      }
-    },
-    {
-      "arguments": {
-        "branchResult": "default"
-      },
-      "metaData": {
-        "label": "Not in Data Cloud"
-      }
-    }
-  ]
+  }
 }
