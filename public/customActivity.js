@@ -207,11 +207,10 @@ define(["postmonger"], function (Postmonger) {
     //console.log("LOG AGAIN" + payload);
     let inArguments = payload.arguments.execute.inArguments;
 
-    console.log(payload.arguments.execute.inArguments);
-    console.log(payload.arguments.execute.inArguments[0] + " HEYYY");
+    console.log(inArguments.length);
+    console.log(inArguments);
+    console.log(JSON.parse(inArguments) + " HEYYY");
     console.log(value);
-
-
 
     // for (i = 0; i < inArguments.length; i++) {
     //   console.log(Object.keys(inArguments[i])[0])
@@ -219,7 +218,6 @@ define(["postmonger"], function (Postmonger) {
     //     text1 = inArguments[i].text1
     //   }
     // }
-
 
     // get the option that the user selected and save it to
     console.log("------------ triggering:updateActivity({obj}) ----------------");
