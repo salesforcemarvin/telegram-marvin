@@ -57,10 +57,11 @@ app.post("/execute", async function (req, res) {
       // console.log(inArguments[2]['customMessage']);
 
       const chat_id = inArguments[0]['chat_id'];
+      const emailAddress = inArguments[1]['emailAddress'];
       const customMessage = inArguments[2]['customMessage'];
 
       const response = await axios.get(
-        `${url}sendMessage?chat_id=${chat_id}&text=${customMessage}`
+        `${url}sendMessage?chat_id=${chat_id}&text=${emailAddress}`
       );
 
       res.send(response.data);
