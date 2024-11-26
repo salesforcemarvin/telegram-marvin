@@ -187,9 +187,6 @@ define(["postmonger"], function (Postmonger) {
     // may be overridden as desired.
     payload.name = value; //text message to send to telegram
 
-    console.log(payload);
-    console.log(value);
-
     //payload["arguments"].execute.inArguments = [{ message: value }];
     //payload["arguments"].execute.inArguments.push({"text": value})
 
@@ -208,6 +205,9 @@ define(["postmonger"], function (Postmonger) {
 
 
     //console.log("LOG AGAIN" + payload);
+    console.log(payload);
+    console.log(value);
+
 
     // get the option that the user selected and save it to
     console.log("------------ triggering:updateActivity({obj}) ----------------");
