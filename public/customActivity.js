@@ -213,13 +213,10 @@ define(["postmonger"], function (Postmonger) {
     console.log("LOG AGAIN" + payload);
 
     // get the option that the user selected and save it to
-    console.log(
-      "------------ triggering:updateActivity({obj}) ----------------"
-    );
+    console.log("------------ triggering:updateActivity({obj}) ----------------");
     console.log("Sending message back to updateActivity");
     console.log("saving\n", value);
-      "--------------------------------------------------------------"
-    );
+
     connection.trigger("updateActivity", payload);
   }
 
