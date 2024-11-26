@@ -53,12 +53,12 @@ app.post("/execute", async function (req, res) {
 
       console.log(inArguments.length);
       console.log(inArguments[0]['chat_id']);
-      console.log(inArguments[0]['emailAddress']);
-      console.log(inArguments[0]['customMessage']);
+      console.log(inArguments[1]['emailAddress']);
+      console.log(inArguments[2]['customMessage']);
 
       // const aArgs = req.arguments.execute.inArguments[0];
       // const chat_id = aArgs.chat_id;
-      const customMessage =inArguments[0]['customMessage'];
+      const customMessage =inArguments[2]['customMessage'];
       // const contactKey = aArgs.contactKey;
 
       const response = axios.get(
