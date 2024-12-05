@@ -37,7 +37,9 @@ app.post("/execute", async function (req, res) {
   
   let channel = "@vcbsalesforce";
   let contact = "632717898";
-  const token = "7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs";
+  //const token = "7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs"; //vcb
+  const token = "7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk"; //bpi
+  
   const endpoint = "https://api.telegram.org/bot";
   const url = `${endpoint}${token}/`;
 
